@@ -1,0 +1,26 @@
+def start_game():
+    """Manages the flow of the game."""
+    global game_over
+    game_over = False
+    current_energy = PLAYER_ENERGY
+
+    game_introduction()
+
+    # Gate 1
+    current_energy = gate1_number_guessing(current_energy)
+    if game_over: return
+
+    # Gate 2
+    current_energy = gate2_riddle_challenge(current_energy)
+    if game_over: return
+
+    # Gate 3
+    current_energy = gate3_hacking_game(current_energy)
+    if game_over: return
+
+    print("\n--- CONGRATULATIONS! You have bypassed all security gates and escaped The Cyber Dungeon! ---")
+    display_energy(current_energy)
+    print("Thanks for playing!")
+
+# Run the game
+start_game()
